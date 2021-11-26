@@ -1,0 +1,10 @@
+
+services:
+  php:
+    image: php:7.4-fpm
+    container_name: php-fpm
+    volumes:
+      - ./:/src
+    command: /src/install.sh
+    ports:
+      - 8000:8000
