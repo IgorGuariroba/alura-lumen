@@ -52,4 +52,18 @@ class SeriesController
 
     }
 
+    public function destroy(int $id)
+    {
+        $seriesRemovidas = Serie::destroy($id);
+
+        if ($seriesRemovidas === 0) {
+            return response()->json([
+                "message" => 'Serie não encontrada!',
+                "success" => false
+            ], 404);
+        }
+
+        return response()->json('', 204);
+    }
+
 }
