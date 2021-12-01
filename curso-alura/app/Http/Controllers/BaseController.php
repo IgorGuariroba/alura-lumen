@@ -9,9 +9,9 @@ class BaseController
 {
     protected string $classe;
 
-    public function index(): JsonResponse
+    public function index(Request $request)
     {
-        return response()->json($this->classe::all());
+        return $this->classe::paginate($request->per_page);
     }
 
     public function store(Request $request): JsonResponse
